@@ -8,7 +8,8 @@ from rich.panel import Panel
 # --- Updated Details ---
 MY_NAME = "NONAMEHACKER" 
 MY_CHANNEL_LINK = "https://whatsapp.com/channel/0029Va75f6BIXnlq8eZxTy2M"
-MY_GITHUB = "github.com/NONAMEHACKER"
+MY_GITHUB = "github.com/ahsannnh41-del"
+MY_TEAM = "Ｍ▲ＳＴΞЯ"
 # -----------------------
 
 os.system("clear")
@@ -38,15 +39,16 @@ def otp_lock_banner():
 
 def temp_ban_api(country_code, phone_number):
     try:
+        # Note: Agar ye API server down hai to error aata rahega
         api_url = f"https://api-bruxiintk.online/api/temp-ban?apikey=bx&ddi={country_code}&numero={phone_number}"
-        response = requests.get(api_url)
+        response = requests.get(api_url, timeout=10)
         response.raise_for_status()  
         if response.status_code == 200:
             return f"\n\n[✓] Successfully done\n  Completed..!!\n\nThank You For Using My Script!!\n Created By {MY_NAME}!!\n"
         else:
             return "Not done"
     except Exception as e:
-        return f"Error: {e}"
+        return f"\n\033[91m[!] Connection Error: API Server is Down or No Internet.\033[0m"
 
 def print_with_delay_and_color(text, color_code, bold=True, delay_char=0.03):
     bold_code = "1;" if bold else ""  
@@ -64,10 +66,9 @@ def redirect_to_channel(url):
 def main():
     otp_lock_banner()
     
-    # Intro lines
     lines = [
         (f"CALL ME {MY_NAME}..", "93", True),
-        (f"I AM THE OWNER OF {MY_NAME} TEAM..", "94", True),
+        (f"I AM THE OWNER OF TEAM {MY_TEAM}..", "94", True),
         ("WhatsApp Channel: ", "97", True),
         (f"{MY_CHANNEL_LINK}", "91", False),
         ("Wait For Start Tool..............", "90", True)
